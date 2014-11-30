@@ -8,10 +8,8 @@ SunXin Struts2 chapter 19.
 
 
 ----------
-
-
-
-
+# V0.2 #
+将applicationContext.xml文件移动到resources文件下
 
 ----------
 # V0.1 #
