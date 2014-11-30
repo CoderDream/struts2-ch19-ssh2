@@ -75,14 +75,6 @@
 			<version>2.3.8</version>
 		</dependency>
 
-		<!-- 编译的时候需要，SAE不需要，所以要过滤 -->
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>${commons.logging.version}</version>
-			<scope>compile</scope>
-		</dependency>
-
 		<!-- hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -117,6 +109,14 @@
 			<version>${spring.version}</version>
 		</dependency>
 
+		<!-- begin 编译的时候需要，SAE不需要，所以要过滤 ，打包到SAE时scope改成provide -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>${commons.logging.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
 		<!-- common-lang -->
 		<dependency>
 			<groupId>commons-lang</groupId>
@@ -133,14 +133,6 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- 编译的时候用到，打包的时候没有，SAE已包含此jar -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
-			<scope>compile</scope>
-		</dependency>
-
 		<!-- common-collections -->
 		<dependency>
 			<groupId>commons-collections</groupId>
@@ -148,6 +140,16 @@
 			<version>${commons.collections.version}</version>
 			<scope>compile</scope>
 		</dependency>
+		
+		<!-- mysql连接器 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+			<scope>compile</scope>
+		</dependency>		
+		<!-- end 编译的时候需要，SAE不需要，所以要过滤 ，打包到SAE时scope改成provide -->
+
 	</dependencies>
 	<build>
 		<finalName>struts2-ch19-ssh2</finalName>
