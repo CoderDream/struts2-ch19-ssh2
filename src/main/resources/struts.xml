@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 设置默认的字符集为GBK -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<package name="default" extends="struts-default">
+		<!-- list action用于列出所有分类 -->
+		<action name="list" class="org.sunxin.struts2.action.CategoryAction" method="list">
+			<result>/listCategories.jsp</result>
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<!-- edit-* action用于分类的创建和更新 -->
+		<action name="edit-*" class="org.sunxin.struts2.action.CategoryAction">
+			<param name="id">{1}</param>
+			<result>/editCategory.jsp</result>
+			<interceptor-ref name="static-params" />
+			<interceptor-ref name="basicStack" />
+		</action>
+
+		<!-- save action用于保存新创建的分类和更新后的分类 -->
+		<action name="save" class="org.sunxin.struts2.action.CategoryAction" method="save">
+			<result name="input">/editCategory.jsp</result>
+			<result type="redirect">list.action</result>
+		</action>
+
+		<!-- delete-* action用于删除分类 -->
+		<action name="delete-*" class="org.sunxin.struts2.action.CategoryAction" method="delete">
+			<param name="id">{1}</param>
+			<result type="redirect">list.action</result>
+			<interceptor-ref name="static-params" />
+		</action>
+	</package>
+</struts>

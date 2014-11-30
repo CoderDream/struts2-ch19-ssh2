@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping package="org.sunxin.struts2.persistence.entity">
+	<!-- Category类映射category表 -->
+	<class name="Category" table="category">
+		<!-- 指定实体类的标识属性，对应数据库表的主键字段 -->
+		<id name="id" column="id" type="java.lang.Integer">
+			<!-- 指定数据库表主键生成方式，
+				identity对应SQL Server和MySQL数据库中的自增主键 -->
+			<generator class="identity" />
+		</id>
+		<!-- 将类中的属性与数据库表的字段进行映射 -->
+		<property name="name" column="name" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>
